@@ -20,7 +20,7 @@ class Course:
 # Student Class
 class Student(Administrator):
     """This class stores Student data"""
-    def __init__(self, name, department, student_id, university, year_of_joining, dob):
+    def __init__(self, name,department, student_id, university, year_of_joining, dob):
         self.name = name
         self.department = department
         self.student_id = student_id
@@ -47,23 +47,23 @@ class Student(Administrator):
             print("\nStudent is already enrolled in this course")
     # View Schedule
     def view_schedule(self):
-        print(f"\n--- Schedule of {self.name} ---")
+        print(f"\n Schedule of {self.name}")
         if len(self.__courses) == 0:
             print("No courses enrolled")
         else:
             for course in self.__courses:
-                print(f"{course.course_id} - {course.course_name}")
+                print(f"{course.course_id}-{course.course_name}")
     # Add Grade
     def add_grade(self, course, grade):
         self.__grades[course.course_id] = grade
     # Check Grades
     def check_grades(self):
-        print(f"\n--- Grades of {self.name} ---")
+        print(f"\n Grades of {self.name}")
         if len(self.__grades) == 0:
             print("No grades available")
         else:
             for course_id, grade in self.__grades.items():
-                print(f"Course ID: {course_id} | Grade: {grade}")
+                print(f"Course ID:{course_id}|Grade:{grade}")
 # Undergraduate Student Class
 class UndergraduateStudent(Student):
     """This class represents Undergraduate students"""
@@ -97,7 +97,7 @@ class Faculty(Administrator):
         self.__students = []
     # Faculty Details
     def details(self):
-        print("\n--- Faculty Details ---")
+        print("\n Faculty Details ")
         print(f"Name       : {self.name}")
         print(f"Faculty ID : {self.faculty_id}")
         print(f"Department : {self.department}")
@@ -117,7 +117,7 @@ class Faculty(Administrator):
             print("\nStudent is already in the roster")
     # Course Assignments
     def view_course_assignments(self):
-        print(f"\n--- Courses assigned to {self.name} ---")
+        print(f"\n Courses assigned to {self.name}")
         if len(self.__courses) == 0:
             print("No courses assigned")
         else:
@@ -125,7 +125,7 @@ class Faculty(Administrator):
                 print(f"{course.course_id} - {course.course_name}")
     # Student Roster
     def view_student_roster(self):
-        print(f"\n--- Student Roster of {self.name} ---")
+        print(f"\n student Roster of {self.name}")
         if len(self.__students) == 0:
             print("No students in roster")
         else:
@@ -153,7 +153,7 @@ class University:
         print(f"\n{faculty.name} added to university")
     # University Details
     def display_university(self):
-        print("\n--- University Details ---")
+        print("\n University Details ")
         print(f"University Name : {self.university_name}")
         print(f"Total Students : {len(self.students)}")
         print(f"Total Courses  : {len(self.courses)}")
@@ -166,7 +166,7 @@ class Department(University):
         self.department_name = department_name
     # Department Details
     def display_department(self):
-        print("\n--- Department Details ---")
+        print("\n Department Details")
         print(f"University : {self.university_name}")
         print(f"Department : {self.department_name}")
 # University Object
@@ -182,6 +182,7 @@ course3.display_course()
 # Student Objects
 student1 = UndergraduateStudent("Lavanya", "Computer Science", 101, "ABC University", 2026, "25-11-2004")
 student2 = GraduateStudent("Rahul", "Computer Science", 102, "ABC University", 2026, "10-05-2003")
+
 # Student Details
 student1.details()
 student2.details()
